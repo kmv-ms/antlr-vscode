@@ -4,3 +4,4 @@ generated
 coverage
 vscode-antlr4-*.vsix
 .antlr
+.vs
