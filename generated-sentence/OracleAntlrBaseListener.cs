@@ -72,18 +72,6 @@ public partial class OracleAntlrBaseListener : IOracleAntlrListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitHintInputFile([NotNull] OracleAntlrParser.HintInputFileContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="OracleAntlrParser.plSqlCheckInputFile"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterPlSqlCheckInputFile([NotNull] OracleAntlrParser.PlSqlCheckInputFileContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="OracleAntlrParser.plSqlCheckInputFile"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitPlSqlCheckInputFile([NotNull] OracleAntlrParser.PlSqlCheckInputFileContext context) { }
-	/// <summary>
 	/// Enter a parse tree produced by <see cref="OracleAntlrParser.dynamicSqlInputFile"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>

@@ -81,7 +81,7 @@ describe("Sentence Generation", () => {
         const rule: string = 'sqlInputFile';
         console.log(rule);
         backend.generateSentence("grammars/OracleAntlr.g4", rule , {
-            count: 2,
+            count: 10,
             maxLexerIterations: 1,
             maxParserIterations: 1,
         }, tester.bind(this, rule));

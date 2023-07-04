@@ -61,16 +61,6 @@ public interface IOracleAntlrListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitHintInputFile([NotNull] OracleAntlrParser.HintInputFileContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="OracleAntlrParser.plSqlCheckInputFile"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterPlSqlCheckInputFile([NotNull] OracleAntlrParser.PlSqlCheckInputFileContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="OracleAntlrParser.plSqlCheckInputFile"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitPlSqlCheckInputFile([NotNull] OracleAntlrParser.PlSqlCheckInputFileContext context);
-	/// <summary>
 	/// Enter a parse tree produced by <see cref="OracleAntlrParser.dynamicSqlInputFile"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
