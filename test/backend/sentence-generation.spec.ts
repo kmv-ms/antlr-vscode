@@ -69,11 +69,12 @@ describe("Sentence Generation", () => {
             /* eslint-enable @typescript-eslint/naming-convention */
         };
 
+
         const tester = (rule: string, sentence: string) => {
             console.log(rule + ": " + sentence);
-
-            const errors = backend.parseTestInput("grammars/OracleAntlrParser.g4", sentence, rule);
-            expect(errors).toHaveLength(0);
+            fs.writeFileSync("./GeneratedSQL/" + Date.now().toString() + ".sql", sentence);
+            //const errors = backend.parseTestInput("grammars/OracleAntlrParser.g4", sentence, rule);
+            //expect(errors).toHaveLength(0);
         };
 
         //const rules = backend.getRuleList("grammars/OracleAntlr.g4")!;

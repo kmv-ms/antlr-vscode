@@ -1,20 +1,18 @@
 grammar OracleAntlr;
 
-expressionInputFile: fullExpression EOF;
+expressionInputFile: fullExpression;
 
-conditionInputFile: fullExpression EOF;
+conditionInputFile: fullExpression;
 
-hintInputFile: hintsList EOF;
+hintInputFile: hintsList;
 
-plSqlCheckInputFile: (DECLARE | BEGIN) ~EOF* EOF; // Just check if the file starts with one of these tokens. Ignore the rest.
+dynamicSqlInputFile: (sqlStatement | plSqlStatement);
 
-dynamicSqlInputFile: (sqlStatement | plSqlStatement) EOF;
+computedColumnExpressionInputFile: computedColumnExpression;
 
-computedColumnExpressionInputFile: computedColumnExpression EOF;
+expressionListInputFile: fullExpressionList;
 
-expressionListInputFile: fullExpressionList EOF;
-
-hintsList: hintItem* EOF;
+hintsList: hintItem*;
 
 hintItem:
     (
@@ -37,7 +35,7 @@ complexIndexHint: LPAREN identifier* RPAREN;
 
 queryBlock: AT_SIGN identifier;
 
-sqlInputFile: (sqlStatementBatch (FSLASH | EOF))* EOF;
+sqlInputFile: sqlStatementBatch (FSLASH sqlStatementBatch)*;
 sqlStatementBatch: sqlStatement (SEMI sqlStatementBatch?)?;
 sqlStatement:
     createStatement
@@ -105,8 +103,7 @@ routineSignature:
     createStatementReplaceClause?
     editionOptionClause?
     procedureOrFunctionSignature
-    .*?
-    EOF;
+    .*?;
 
 procedureOrFunctionSignature:
     procedureSignature
