@@ -1,0 +1,1 @@
+creaTe seQUENCE ""  .  ClosE  @ :ও῏  . ""      

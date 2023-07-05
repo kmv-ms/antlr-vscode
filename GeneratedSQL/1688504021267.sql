@@ -1,0 +1,1 @@
+aLter tyPE "" @ invalIdaTioN  @ ROWTYPE     DRoP AtTRiBUtE "𪮺"  （ :36    , #5  @ "៣"   .  ""    ）       

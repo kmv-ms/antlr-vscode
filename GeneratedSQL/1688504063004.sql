@@ -1,0 +1,1 @@
+alteR seQuENCE :٭7  @ "Ἠ"   .  "𡛊"   nOscaLe     

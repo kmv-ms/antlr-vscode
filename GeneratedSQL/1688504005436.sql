@@ -1,0 +1,1 @@
+droP INdEX :⽽  @ "🧀" @ nomINVALue       

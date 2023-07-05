@@ -1,0 +1,1 @@
+drOp indEX Ή4  @ "" . "ቘ"    FoRCe   

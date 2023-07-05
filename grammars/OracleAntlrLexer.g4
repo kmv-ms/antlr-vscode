@@ -615,8 +615,7 @@ CARET: '^';
 TILDE: '~';
 
 FLOATING_POINT_LITERAL:
-    [0-9]+ '.' { LookaheadNot('.') }?
-    | [0-9]+ '.' [0-9]+ EXPONENT?
+      [0-9]+ '.' { LookaheadNot('.') }? [0-9]* EXPONENT?
     | '.' [0-9]+ EXPONENT?
     | [0-9]+ EXPONENT?;
 

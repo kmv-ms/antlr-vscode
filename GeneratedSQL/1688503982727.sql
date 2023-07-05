@@ -1,0 +1,1 @@
+dRop TyPe MATEriaLIzED    vAlIdatE    

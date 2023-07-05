@@ -1,0 +1,1 @@
+altEr TRIGGEr lONg  @ :34    .  ""   eNAblE   

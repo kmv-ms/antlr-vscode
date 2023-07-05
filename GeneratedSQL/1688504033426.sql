@@ -1,0 +1,1 @@
+deCLarE currENT_usEr  @ "" @ ""  ( )   EXCEptiOn  ;   BeGiN < < :#ⶫ   > >   GOTO "𮎙" @ Cast     ;   eND ""    

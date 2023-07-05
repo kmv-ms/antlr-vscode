@@ -41,12 +41,11 @@ describe("Sentence Generation", () => {
     };
 
     beforeAll(async () => {
-        let result = await backend.generate("grammars/OracleAntlr.g4", {
+        let result = await backend.generate("grammars/OracleAntlrParser.g4", {
             outputDir: "generated-sentence",
             language: "CSharp",
             alternativeJar: "antlr/antlr-4.9.2-complete.jar",
         });
-
         for (const file of result) {
             const diagnostics = backend.getDiagnostics(file);
             if (diagnostics.length > 0) {
@@ -71,24 +70,27 @@ describe("Sentence Generation", () => {
 
 
         const tester = (rule: string, sentence: string) => {
-            console.log(rule + ": " + sentence);
-            fs.writeFileSync("./GeneratedSQL/" + Date.now().toString() + ".sql", sentence);
+            let ctime = Date.now().toString();
+            console.log(rule + ": " + ctime);
+
+            fs.writeFileSync("./GeneratedSQL/" + ctime + ".sql", sentence);
             //const errors = backend.parseTestInput("grammars/OracleAntlrParser.g4", sentence, rule);
             //expect(errors).toHaveLength(0);
         };
 
         //const rules = backend.getRuleList("grammars/OracleAntlr.g4")!;
-        const rule: string = 'sqlInputFile';
+        let rule: string = 'sqlInputFile';
+        rule = 'sqlStatement';
         console.log(rule);
-        backend.generateSentence("grammars/OracleAntlr.g4", rule , {
-            count: 10,
+        backend.generateSentence("grammars/OracleAntlrParser.g4", rule , {
+            count: 100,
             maxLexerIterations: 1,
             maxParserIterations: 1,
         }, tester.bind(this, rule));
     });
 
     afterAll(() => {
-        backend.releaseGrammar("grammars/OracleAntlr.g4");
+        backend.releaseGrammar("grammars/OracleAntlrParser.g4");
         //fs.rmSync("generated-sentence", { recursive: true, force: true });
     });
 });

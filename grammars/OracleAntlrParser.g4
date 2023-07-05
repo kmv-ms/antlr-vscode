@@ -4,19 +4,19 @@ options {
     tokenVocab = OracleAntlrLexer;
 }
 
-expressionInputFile: fullExpression;
+expressionInputFile: fullExpression ;
 
-conditionInputFile: fullExpression;
+conditionInputFile: fullExpression ;
 
-hintInputFile: hintsList;
+hintInputFile: hintsList ;
 
-dynamicSqlInputFile: (sqlStatement | plSqlStatement);
+dynamicSqlInputFile: (sqlStatement | plSqlStatement) ;
 
-computedColumnExpressionInputFile: computedColumnExpression;
+computedColumnExpressionInputFile: computedColumnExpression ;
 
-expressionListInputFile: fullExpressionList;
+expressionListInputFile: fullExpressionList ;
 
-hintsList: hintItem*;
+hintsList: hintItem* ;
 
 hintItem:
     (
@@ -39,7 +39,7 @@ complexIndexHint: LPAREN identifier* RPAREN;
 
 queryBlock: AT_SIGN identifier;
 
-sqlInputFile: sqlStatementBatch (FSLASH sqlStatementBatch)*;
+sqlInputFile: sqlStatementBatch (FSLASH  sqlStatementBatch)* ;
 sqlStatementBatch: sqlStatement (SEMI sqlStatementBatch?)?;
 sqlStatement:
     createStatement
@@ -107,7 +107,8 @@ routineSignature:
     createStatementReplaceClause?
     editionOptionClause?
     procedureOrFunctionSignature
-    .*?;
+    .*?
+    ;
 
 procedureOrFunctionSignature:
     procedureSignature
@@ -1937,9 +1938,9 @@ columnDeclarationClause:
     (columnRefConstraintClause | columnConstraintClause+)?;
 
 columnIdentityClause:
-    GENERATED (ALWAYS | BY DEFAULT (ON NULL)?) AS IDENTITY
+    GENERATED (ALWAYS | BY DEFAULT (ON NULL)?)? AS IDENTITY
         (
-            LPAREN identityOption+ RPAREN
+            LPAREN identityOption* RPAREN
             | identityOption*
         );
 

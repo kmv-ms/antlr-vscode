@@ -1,0 +1,1 @@
+ALTEr TYPE :6  @ :7    .  ""   comPiLe debug    

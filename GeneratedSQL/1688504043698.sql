@@ -1,0 +1,1 @@
+dROp InDeX tRim   .  "" @ "𭟼"      

@@ -1,0 +1,1 @@
+TrunCAtE tABLe ""  .  *    
