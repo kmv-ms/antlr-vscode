@@ -1,0 +1,38 @@
+import { IATNGraphRendererData, IVSCode } from "./types";
+export declare class ATNGraphRenderer {
+    private vscode;
+    private static readonly gridSize;
+    private svg;
+    private topGroup;
+    private zoom;
+    private figures;
+    private lines;
+    private textSelection;
+    private descriptions;
+    private linkLabels;
+    private simulation;
+    private uri;
+    private ruleName;
+    private currentNodes?;
+    private maxLabelCount;
+    constructor(vscode: IVSCode);
+    get currentTransformation(): object;
+    render(data: IATNGraphRendererData): void;
+    resetTransformation: (x: number | undefined, y: number | undefined, scale: number | undefined) => void;
+    private resetNodePositions;
+    private appendLinkText;
+    private animationTick;
+    private animationEnd;
+    private transform;
+    private snapTransform;
+    private endCoordinate;
+    private lineIntersection;
+    private transformLinkLabels;
+    private transformLines;
+    private dragStarted;
+    private dragged;
+    private doubleClicked;
+    private snapToGrid;
+    private isATNLayoutNode;
+    private isSimulationNodeDatum;
+}

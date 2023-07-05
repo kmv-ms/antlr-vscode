@@ -1,0 +1,54 @@
+import { Vocabulary } from "antlr4ts";
+export interface IContextEntry {
+    context: SourceContext;
+    refCount: number;
+    dependencies: string[];
+    grammar: string;
+}
+import { SourceContext } from "./SourceContext";
+import { GrammarDebugger } from "./GrammarDebugger";
+import { ISelfDiagnostics, ISymbolInfo, CodeActionType, IDiagnosticEntry, IReferenceNode, IGenerationOptions, ISentenceGenerationOptions, IFormattingOptions, IContextDetails } from "./types";
+import { IATNGraphData } from "../webview-scripts/types";
+export declare class AntlrFacade {
+    private importDir;
+    private extensionDir;
+    private sourceContexts;
+    constructor(importDir: string, extensionDir: string);
+    getSelfDiagnostics(): ISelfDiagnostics;
+    getContext(fileName: string, source?: string | undefined): SourceContext;
+    setText(fileName: string, source: string): void;
+    reparse(fileName: string): void;
+    loadGrammar(fileName: string, source?: string): SourceContext;
+    releaseGrammar(fileName: string): void;
+    symbolInfoAtPosition(fileName: string, column: number, row: number, limitToChildren?: boolean): ISymbolInfo | undefined;
+    infoForSymbol(fileName: string, symbol: string): ISymbolInfo | undefined;
+    enclosingSymbolAtPosition(fileName: string, column: number, row: number, ruleScope?: boolean): ISymbolInfo | undefined;
+    listTopLevelSymbols(fileName: string, fullList: boolean): ISymbolInfo[];
+    getLexerVocabulary(fileName: string): Vocabulary | undefined;
+    getRuleList(fileName: string): string[] | undefined;
+    getChannels(fileName: string): string[] | undefined;
+    getModes(fileName: string): string[] | undefined;
+    listActions(fileName: string, type: CodeActionType): ISymbolInfo[];
+    getActionCounts(fileName: string): Map<CodeActionType, number>;
+    getCodeCompletionCandidates(fileName: string, column: number, row: number): Promise<ISymbolInfo[]>;
+    getDiagnostics(fileName: string): IDiagnosticEntry[];
+    ruleFromPosition(fileName: string, column: number, row: number): [string | undefined, number | undefined];
+    countReferences(fileName: string, symbol: string): number;
+    getSymbolOccurrences(fileName: string, symbolName: string): ISymbolInfo[];
+    getDependencies(fileName: string): string[];
+    getReferenceGraph(fileName: string): Map<string, IReferenceNode>;
+    getRRDScript(fileName: string, rule: string): string;
+    generate(fileName: string, options: IGenerationOptions): Promise<string[]>;
+    getATNGraph(fileName: string, rule: string): IATNGraphData | undefined;
+    generateSentence(fileName: string, rule: string, options: ISentenceGenerationOptions, callback: (sentence: string, index: number) => void): void;
+    lexTestInput(fileName: string, input: string, actionFile?: string): [string[], string];
+    parseTestInput(fileName: string, input: string, startRule: string, actionFile?: string): string[];
+    formatGrammar(fileName: string, options: IFormattingOptions, start: number, stop: number): [string, number, number];
+    hasErrors(fileName: string): boolean;
+    createDebugger(fileName: string, actionFile: string, dataDir: string): GrammarDebugger | undefined;
+    getContextDetails(fileName: string): IContextDetails;
+    private loadDependency;
+    private parseGrammar;
+    private internalReleaseGrammar;
+    private pushDependencyFiles;
+}

@@ -1,0 +1,30 @@
+import { ExtensionContext } from "vscode";
+export declare const printErrors: (lines: unknown[], revealOutput: boolean) => void;
+export declare class ExtensionHost {
+    private static readonly diagnosticMap;
+    private static readonly antlrSelector;
+    private static readonly diagnosticTypeMap;
+    private readonly importDir;
+    private readonly backend;
+    private readonly progress;
+    private readonly diagnosticCollection;
+    private importsProvider;
+    private lexerSymbolsProvider;
+    private parserSymbolsProvider;
+    private channelsProvider;
+    private modesProvider;
+    private actionsProvider;
+    private parseTreeProvider;
+    private codeLensProvider;
+    private diagramProvider;
+    private atnGraphProvider;
+    private callGraphProvider;
+    private changeTimers;
+    constructor(context: ExtensionContext);
+    shutDown(): void;
+    private addSubscriptions;
+    private registerEventHandlers;
+    private processDiagnostic;
+    private regenerateBackgroundData;
+    private updateTreeProviders;
+}

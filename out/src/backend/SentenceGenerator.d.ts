@@ -1,0 +1,38 @@
+import { RuleStartState } from "antlr4ts/atn";
+import { ISentenceGenerationOptions, PredicateFunction } from "./types";
+import { IInterpreterData } from "./InterpreterDataReader";
+import { SourceContext } from "./SourceContext";
+export declare class SentenceGenerator {
+    private lexerData;
+    private parserData;
+    private static printableUnicode;
+    runPredicate?: PredicateFunction;
+    private lexerPredicates;
+    private parserPredicates;
+    private convergenceFactor;
+    private lexerDecisionCounts;
+    private parserDecisionCounts;
+    private minParserIterations;
+    private maxParserIterations;
+    private minLexerIterations;
+    private maxLexerIterations;
+    private maxRecursions;
+    private maxRecursionLabel;
+    private ruleInvocations;
+    private ruleMappings?;
+    private parserStack;
+    constructor(context: SourceContext, lexerData: IInterpreterData, parserData: IInterpreterData | undefined, actionFile: string | undefined);
+    generate(options: ISentenceGenerationOptions, start: RuleStartState): string;
+    sempred(ruleIndex: number, predIndex: number, inLexer: boolean): boolean;
+    private getRuleName;
+    private invokeRule;
+    private leaveRule;
+    private generateFromATNSequence;
+    private generateFromDecisionState;
+    private getRandomDecision;
+    private loopEnd;
+    private blockStart;
+    private getIntervalElement;
+    private getRandomCharacterFromInterval;
+    private getRandomLoopCount;
+}
